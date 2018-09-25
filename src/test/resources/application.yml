@@ -1,0 +1,10 @@
+shiro:
+  antisamy:
+    enabled: true
+    policy-mappings:
+      '[/ebay]' : classpath*:antisamy-ebay.xml
+      '[/anythingsgoes]' : classpath*:antisamy-anythingsgoes.xml
+      '[/myspace]' : classpath*:antisamy-myspace.xml
+      '[/slashdot]' : classpath*:antisamy-slashdot.xml
+      '[/tinymce]' : classpath*:antisamy-tinymce.xml
+      '[/*]' : classpath*:antisamy-shiro.xml
