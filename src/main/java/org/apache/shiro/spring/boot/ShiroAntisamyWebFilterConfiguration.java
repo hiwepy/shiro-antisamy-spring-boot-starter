@@ -3,7 +3,6 @@ package org.apache.shiro.spring.boot;
 import org.apache.shiro.spring.boot.antisamy.cache.AntiSamyCacheManager;
 import org.apache.shiro.spring.boot.antisamy.cache.PolicyCacheManager;
 import org.apache.shiro.spring.boot.antisamy.web.filter.HttpServletRequestAntisamyFilter;
-import org.apache.shiro.spring.boot.antisamy.web.filter.HttpServletRequestEscapeHtml4Filter;
 import org.apache.shiro.spring.web.config.AbstractShiroWebFilterConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -230,16 +229,6 @@ public class ShiroAntisamyWebFilterConfiguration extends AbstractShiroWebFilterC
 		FilterRegistrationBean<HttpServletRequestAntisamyFilter> registration = new FilterRegistrationBean<HttpServletRequestAntisamyFilter>();
 		HttpServletRequestAntisamyFilter antisamyFilter = new HttpServletRequestAntisamyFilter(antiSamyCacheManager, properties);
 		registration.setFilter(antisamyFilter);
-	    registration.setEnabled(false); 
-	    return registration;
-	}
-	
-	@Bean("escapeHtml4")
-	@ConditionalOnMissingBean(name = "escapeHtml4")
-	public FilterRegistrationBean<HttpServletRequestEscapeHtml4Filter> escapeHtml4Filter(AntiSamyCacheManager antiSamyCacheManager ,
-			ShiroAntisamyProperties properties){
-		FilterRegistrationBean<HttpServletRequestEscapeHtml4Filter> registration = new FilterRegistrationBean<HttpServletRequestEscapeHtml4Filter>();
-		registration.setFilter(new HttpServletRequestEscapeHtml4Filter());
 	    registration.setEnabled(false); 
 	    return registration;
 	}
