@@ -1,15 +1,5 @@
 package org.apache.shiro.spring.boot.antisamy.cache;
 
-/**
- * 
- * *******************************************************************
- * @className	： AntiSamyKey
- * @description	： TODO(描述这个类的作用)
- * @author 		： <a href="mailto:hnxyhcwdl1003@163.com">wandalong</a>
- * @date		： Mar 31, 2016 1:49:51 PM
- * @version 	V1.0 
- * *******************************************************************
- */
 public abstract class AntiSamyKey {
 
 	/** 多个配置的情况下的分割符号*/
