@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * XSS扫描过滤工具
- * @author 		： <a href="https://github.com/vindell">vindell</a>
+ * @author 		： <a href="https://github.com/hiwepy">hiwepy</a>
  */
 public class AntiSamyScanUtils {
 	

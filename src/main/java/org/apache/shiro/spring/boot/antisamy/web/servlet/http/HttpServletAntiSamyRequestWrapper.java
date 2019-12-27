@@ -15,7 +15,7 @@ import org.apache.shiro.spring.boot.antisamy.utils.XssScanUtils;
 
 /**
  * RichText XSS(Cross Site Scripting)，即跨站脚本攻击请求过滤
- * @author 		： <a href="https://github.com/vindell">vindell</a>
+ * @author 		： <a href="https://github.com/hiwepy">hiwepy</a>
  */
 public class HttpServletAntiSamyRequestWrapper extends HttpServletRequestWrapper {
 

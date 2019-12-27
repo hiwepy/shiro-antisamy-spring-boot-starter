@@ -15,7 +15,7 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 
 /**
  * Policy对象缓存管理
- * @author 		： <a href="https://github.com/vindell">vindell</a>
+ * @author 		： <a href="https://github.com/hiwepy">hiwepy</a>
  */
 public class PolicyCacheManager {
 	
