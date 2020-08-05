@@ -372,10 +372,8 @@
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
         <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
 		<maven-nexus-staging-plugin.version>1.6.8</maven-nexus-staging-plugin.version>		
-	    <owasp-antisamy.version>1.5.9</owasp-antisamy.version>
-		<owasp-esapi.version>2.1.0.1</owasp-esapi.version>
+	    <owasp-antisamy.version>1.5.10</owasp-antisamy.version>
 		<owasp-encoder.version>1.2.2</owasp-encoder.version>
-		<owasp-html-sanitizer.version>20180219.1</owasp-html-sanitizer.version>
 		<shiro-biz.version>1.1.0.RELEASE</shiro-biz.version>
 	</properties> 
 
