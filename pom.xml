@@ -374,7 +374,7 @@
 		<maven-nexus-staging-plugin.version>1.6.8</maven-nexus-staging-plugin.version>		
 	    <owasp-antisamy.version>1.5.10</owasp-antisamy.version>
 		<owasp-encoder.version>1.2.2</owasp-encoder.version>
-		<shiro-biz.version>1.1.0.RELEASE</shiro-biz.version>
+		<shiro-biz.version>1.1.2.RELEASE</shiro-biz.version>
 	</properties> 
 
 	<dependencies>
