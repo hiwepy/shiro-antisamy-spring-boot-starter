@@ -1,15 +1,13 @@
  package org.apache.shiro.spring.boot.antisamy.cache;
 
 
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
+ import org.apache.shiro.spring.boot.antisamy.AntisamyProperties;
+ import org.owasp.validator.html.AntiSamy;
+ import org.owasp.validator.html.Policy;
+ import org.owasp.validator.html.PolicyException;
 
-import org.apache.shiro.spring.boot.antisamy.AntisamyProperties;
-import org.owasp.validator.html.AntiSamy;
-import org.owasp.validator.html.Policy;
-import org.owasp.validator.html.PolicyException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+ import java.util.concurrent.ConcurrentHashMap;
+ import java.util.concurrent.ConcurrentMap;
 
 /**
  * AntiSamy 对象缓存管理
@@ -18,7 +16,6 @@ import org.slf4j.LoggerFactory;
 public class AntiSamyCacheManager {
 	
 	private volatile static AntiSamyCacheManager singleton;
-	protected static Logger LOG = LoggerFactory.getLogger(AntiSamyCacheManager.class);
 	protected static ConcurrentMap<Policy, AntiSamy> COMPLIED_ANTISAMY = new ConcurrentHashMap<Policy, AntiSamy>();
 	protected PolicyCacheManager policyCacheManager;
 	
