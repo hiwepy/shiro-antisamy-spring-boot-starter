@@ -5,7 +5,7 @@ import java.net.URL;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-import org.apache.shiro.biz.utils.StringUtils;
+import org.springframework.util.StringUtils;
 import org.owasp.validator.html.Policy;
 import org.owasp.validator.html.PolicyException;
 import org.slf4j.Logger;

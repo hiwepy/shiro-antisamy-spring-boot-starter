@@ -4,7 +4,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Pattern;
 
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.shiro.spring.boot.antisamy.cache.AntiSamyWrapper;

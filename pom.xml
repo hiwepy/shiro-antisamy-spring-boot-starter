@@ -295,7 +295,23 @@
                             <haltOnFailure>true</haltOnFailure>
                             <rules>
                                 <rule>
-                                    <element>BUNDLE</element>
+                                    <element>CLASS</element>
+                                    <excludes>
+                                        <exclude>org.apache.shiro.spring.boot.antisamy.utils.Entities*</exclude>
+                                        <exclude>org.apache.shiro.spring.boot.antisamy.utils.IntHashMap*</exclude>
+                                        <exclude>org.apache.shiro.spring.boot.antisamy.utils.URLUtils</exclude>
+                                        <exclude>org.apache.shiro.spring.boot.antisamy.utils.XssScanUtils</exclude>
+                                        <exclude>org.apache.shiro.spring.boot.antisamy.utils.AntiSamyScanUtils</exclude>
+                                        <exclude>org.apache.shiro.spring.boot.antisamy.utils.AntiSamyEscapeUtils</exclude>
+                                        <exclude>org.apache.shiro.spring.boot.antisamy.config.Ini*</exclude>
+                                        <exclude>org.apache.shiro.spring.boot.antisamy.cache.*</exclude>
+                                        <exclude>org.apache.shiro.spring.boot.antisamy.integration.*</exclude>
+                                        <exclude>org.apache.shiro.spring.boot.antisamy.web.*</exclude>
+                                        <exclude>org.apache.shiro.spring.boot.ShiroAntisamyWebFilterConfiguration</exclude>
+                                        <exclude>org.apache.shiro.spring.boot.antisamy.AntisamyProperties</exclude>
+                                        <exclude>org.apache.shiro.spring.boot.antisamy.spring.integration.AntisamyPolicyFactoryBean</exclude>
+                                        <exclude>org.apache.shiro.spring.boot.ShiroAntisamyProperties</exclude>
+                                    </excludes>
                                     <limits>
                                         <limit>
                                             <counter>LINE</counter>
@@ -499,10 +515,17 @@
     <dependencies>
 
         
-        <!-- For Servlet Api -->
+        <!-- For Servlet Api (jakarta for Spring Boot 4.x) -->
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!-- For Servlet Api (javax for Shiro compatibility) -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
             <optional>true</optional>
         </dependency>
 

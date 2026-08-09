@@ -1,14 +1,13 @@
 package org.apache.shiro.spring.boot.antisamy.web.filter;
 
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.apache.shiro.biz.utils.WebUtils;
 import org.apache.shiro.spring.boot.antisamy.AntisamyProperties;
 import org.apache.shiro.spring.boot.antisamy.cache.AntiSamyCacheManager;
 import org.apache.shiro.spring.boot.antisamy.cache.AntiSamyWrapper;
@@ -64,12 +63,15 @@ public class HttpServletRequestAntisamyFilter extends AccessControlFilter {
 			throw new ServletException( "just supports HTTP requests");
 		}
 		
-		HttpServletRequest httpRequest = WebUtils.toHttp(request);
-		HttpServletResponse httpResponse = WebUtils.toHttp(response);
+		HttpServletRequest httpRequest = (HttpServletRequest) request;
+		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		
-		if (this.matches(httpRequest)) {
+		// Cast to jakarta type for Spring 6 API calls (at runtime the container provides jakarta objects)
+		jakarta.servlet.http.HttpServletRequest jakartaRequest = (jakarta.servlet.http.HttpServletRequest) (Object) request;
+		
+		if (this.matches(jakartaRequest)) {
 			//根据请求获取响应的
-			AntiSamyWrapper antiSamyWrapper = this.getAntiSamyWrapperForRequest(httpRequest);
+			AntiSamyWrapper antiSamyWrapper = this.getAntiSamyWrapperForRequest(jakartaRequest);
 			filterChain.doFilter(new HttpServletAntiSamyRequestWrapper(antiSamyWrapper, httpRequest), httpResponse);
 		} else {
 			filterChain.doFilter(request,response);
@@ -77,7 +79,7 @@ public class HttpServletRequestAntisamyFilter extends AccessControlFilter {
 		 
 	}
 	
-	protected boolean matches(HttpServletRequest request) {
+	protected boolean matches(jakarta.servlet.http.HttpServletRequest request) {
 		String lookupPath = this.urlPathHelper.getLookupPathForRequest(request);
 		return this.matches(lookupPath, this.pathMatcher);
 	}
@@ -113,7 +115,7 @@ public class HttpServletRequestAntisamyFilter extends AccessControlFilter {
 	 * @param request the request
 	 * @return the result
 	 */
-	protected AntiSamyWrapper getAntiSamyWrapperForRequest(HttpServletRequest request) throws PolicyException {
+	protected AntiSamyWrapper getAntiSamyWrapperForRequest(jakarta.servlet.http.HttpServletRequest request) throws PolicyException {
 		//解析请求路径
 		String lookupPath = this.urlPathHelper.getLookupPathForRequest(request);
 		for (String pattern : properties.getPolicyMappings().keySet()) {

@@ -10,7 +10,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.ResourcePatternResolver;
@@ -49,13 +48,9 @@ public class ShiroAntisamyWebFilterConfiguration extends AbstractShiroWebFilterC
 	
 	@Bean("antisamy")
 	@ConditionalOnMissingBean(name = "antisamy")
-	public FilterRegistrationBean<HttpServletRequestAntisamyFilter> antisamyFilter(AntiSamyCacheManager antiSamyCacheManager ,
+	public HttpServletRequestAntisamyFilter antisamyFilter(AntiSamyCacheManager antiSamyCacheManager ,
 			ShiroAntisamyProperties properties){
-		FilterRegistrationBean<HttpServletRequestAntisamyFilter> registration = new FilterRegistrationBean<HttpServletRequestAntisamyFilter>();
-		HttpServletRequestAntisamyFilter antisamyFilter = new HttpServletRequestAntisamyFilter(antiSamyCacheManager, properties);
-		registration.setFilter(antisamyFilter);
-	    registration.setEnabled(false); 
-	    return registration;
+		return new HttpServletRequestAntisamyFilter(antiSamyCacheManager, properties);
 	}
 
 }

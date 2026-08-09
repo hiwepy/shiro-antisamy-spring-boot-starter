@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<anti-samy-rules>
+    <directives>
+        <directive name="omitXmlDeclaration" value="true"/>
+        <directive name="omitDoctypeDeclaration" value="true"/>
+        <directive name="maxInputSize" value="2000"/>
+    </directives>
+    <common-regexps>
+        <regexp name="anything" value=".*"/>
+    </common-regexps>
+    <common-attributes>
+        <attribute name="title" onInvalid="filterTag">
+            <regexp-list>
+                <regexp name="anything"/>
+            </regexp-list>
+        </attribute>
+    </common-attributes>
+    <global-tag-attributes>
+        <attribute name="title"/>
+    </global-tag-attributes>
+    <tag-rules>
+        <tag name="b" action="validate">
+            <attribute name="title"/>
+        </tag>
+        <tag name="i" action="validate"/>
+        <tag name="u" action="validate"/>
+        <tag name="p" action="validate"/>
+        <tag name="br" action="validate"/>
+    </tag-rules>
+</anti-samy-rules>
