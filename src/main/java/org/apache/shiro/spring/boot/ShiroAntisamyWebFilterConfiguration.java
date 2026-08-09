@@ -24,6 +24,11 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 @AutoConfigureBefore( name = {
 	"org.apache.shiro.spring.config.web.autoconfigure.ShiroWebFilterConfiguration" // shiro-spring-boot-web-starter
 })
+/** Configuration for Shiro Antisamy Web authentication filter chain.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 @ConditionalOnWebApplication
 @ConditionalOnClass({ org.owasp.validator.html.AntiSamy.class })
 @ConditionalOnProperty(prefix = ShiroAntisamyProperties.PREFIX, value = "enabled", havingValue = "true")

@@ -43,38 +43,65 @@ public class AntisamyProperties {
 	/**默认的防XSS攻击的规则配置*/
 	protected String defaultPolicy = DEFAULT_POLICY;
 
+	/** Returns the scan type.
+	 * @return the result
+	 */
 	public int getScanType() {
 		return scanType;
 	}
 
+	/** Sets the scan type.
+	 * @param scanType the scanType
+	 */
 	public void setScanType(int scanType) {
 		this.scanType = scanType;
 	}
 
+	/** Returns the include patterns.
+	 * @return the result
+	 */
 	public String[] getIncludePatterns() {
 		return includePatterns;
 	}
 
+	/** Sets the include patterns.
+	 * @param includePatterns the includePatterns
+	 */
 	public void setIncludePatterns(String[] includePatterns) {
 		this.includePatterns = includePatterns;
 	}
 
+	/** Returns the exclude patterns.
+	 * @return the result
+	 */
 	public String[] getExcludePatterns() {
 		return excludePatterns;
 	}
 
+	/** Sets the exclude patterns.
+	 * @param excludePatterns the excludePatterns
+	 */
 	public void setExcludePatterns(String[] excludePatterns) {
 		this.excludePatterns = excludePatterns;
 	}
 
+	/** Returns the policy mappings.
+	 * @return the result
+	 */
 	public Map<String, String> getPolicyMappings() {
 		return policyMappings;
 	}
 
+	/** Sets the policy mappings.
+	 * @param policyMappings the policyMappings
+	 */
 	public void setPolicyMappings(Map<String, String> policyMappings) {
 		this.policyMappings = policyMappings;
 	}
 
+	/** Sets the policy definitions.
+	 * @param policyDefinitions the policyDefinitions
+	 */
 	public void setPolicyDefinitions(String policyDefinitions) {
 		try {
 			Ini ini = new Ini();
@@ -89,18 +116,30 @@ public class AntisamyProperties {
 		}
 	}
 	
+	/** Returns the policy headers.
+	 * @return the result
+	 */
 	public String[] getPolicyHeaders() {
 		return policyHeaders;
 	}
 
+	/** Sets the policy headers.
+	 * @param policyHeaders the policyHeaders
+	 */
 	public void setPolicyHeaders(String[] policyHeaders) {
 		this.policyHeaders = policyHeaders;
 	}
 
+	/** Returns the default policy.
+	 * @return the result
+	 */
 	public String getDefaultPolicy() {
 		return defaultPolicy;
 	}
 
+	/** Sets the default policy.
+	 * @param defaultPolicy the defaultPolicy
+	 */
 	public void setDefaultPolicy(String defaultPolicy) {
 		this.defaultPolicy = defaultPolicy;
 	}

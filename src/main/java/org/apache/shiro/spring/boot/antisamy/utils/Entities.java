@@ -403,6 +403,11 @@ class Entities {
         entities.addEntities(ISO8859_1_ARRAY);
         entities.addEntities(HTML40_ARRAY);
     }
+    /** The Entity Map.
+     *
+     * @author [@Loong Wan](https://github.com/loong10k)
+     * @since 1.0.0
+     */
 
     static interface EntityMap {
         /**
@@ -439,6 +444,11 @@ class Entities {
          */
         int value(String name);
     }
+    /** The Primitive Entity Map.
+     *
+     * @author [@Loong Wan](https://github.com/loong10k)
+     * @since 1.0.0
+     */
 
     static class PrimitiveEntityMap implements EntityMap {
         private final Map mapNameToValue = new HashMap();
@@ -515,6 +525,11 @@ class Entities {
             return ((Integer) value).intValue();
         }
     }
+    /** The Hash Entity Map.
+     *
+     * @author [@Loong Wan](https://github.com/loong10k)
+     * @since 1.0.0
+     */
 
     static class HashEntityMap extends MapIntMap {
         /**
@@ -524,6 +539,11 @@ class Entities {
             super(new HashMap(), new HashMap());
         }
     }
+    /** The Tree Entity Map.
+     *
+     * @author [@Loong Wan](https://github.com/loong10k)
+     * @since 1.0.0
+     */
 
     static class TreeEntityMap extends MapIntMap {
         /**
@@ -533,6 +553,11 @@ class Entities {
             super(new TreeMap(), new TreeMap());
         }
     }
+    /** The Lookup Entity Map.
+     *
+     * @author [@Loong Wan](https://github.com/loong10k)
+     * @since 1.0.0
+     */
 
     static class LookupEntityMap extends PrimitiveEntityMap {
         // TODO this class is not thread-safe
@@ -576,6 +601,11 @@ class Entities {
             }
         }
     }
+    /** The Array Entity Map.
+     *
+     * @author [@Loong Wan](https://github.com/loong10k)
+     * @since 1.0.0
+     */
 
     static class ArrayEntityMap implements EntityMap {
         // TODO this class is not thread-safe
@@ -661,6 +691,11 @@ class Entities {
             return -1;
         }
     }
+    /** The Binary Entity Map.
+     *
+     * @author [@Loong Wan](https://github.com/loong10k)
+     * @since 1.0.0
+     */
 
     static class BinaryEntityMap extends ArrayEntityMap {
 

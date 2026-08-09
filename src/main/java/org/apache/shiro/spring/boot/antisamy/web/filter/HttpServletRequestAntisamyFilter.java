@@ -20,7 +20,7 @@ import org.springframework.util.PathMatcher;
 import org.springframework.web.util.UrlPathHelper;
 
 /**
- * Antisamy XSS(Cross Site Scripting)，即跨站脚本攻击请求过滤
+ * Antisamy XSS(Cross Site Scripting)，request
  * @author [@Loong Wan](https://github.com/loong10k)
  */
 public class HttpServletRequestAntisamyFilter extends AccessControlFilter {
@@ -41,6 +41,12 @@ public class HttpServletRequestAntisamyFilter extends AccessControlFilter {
 	}
 	
 	@Override
+	/** Returns whether the access allowed is enabled.
+	 * @param request the request
+	 * @param response the response
+	 * @param mappedValue the mappedValue
+	 * @return the result
+	 */
 	protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue)
 			throws Exception {
 		return true;
@@ -103,6 +109,10 @@ public class HttpServletRequestAntisamyFilter extends AccessControlFilter {
 		}
 	}
 	
+	/** Returns the anti samy wrapper for request.
+	 * @param request the request
+	 * @return the result
+	 */
 	protected AntiSamyWrapper getAntiSamyWrapperForRequest(HttpServletRequest request) throws PolicyException {
 		//解析请求路径
 		String lookupPath = this.urlPathHelper.getLookupPathForRequest(request);

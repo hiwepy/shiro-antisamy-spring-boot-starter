@@ -14,7 +14,7 @@ import org.apache.shiro.spring.boot.antisamy.utils.AntiSamyScanUtils;
 import org.apache.shiro.spring.boot.antisamy.utils.XssScanUtils;
 
 /**
- * RichText XSS(Cross Site Scripting)，即跨站脚本攻击请求过滤
+ * RichText XSS(Cross Site Scripting)，request
  * @author [@Loong Wan](https://github.com/loong10k)
  */
 public class HttpServletAntiSamyRequestWrapper extends HttpServletRequestWrapper {
@@ -27,6 +27,9 @@ public class HttpServletAntiSamyRequestWrapper extends HttpServletRequestWrapper
 	}
 	
 	@Override
+	/** Returns the parameter map.
+	 * @return the result
+	 */
 	public Map<String, String[]> getParameterMap() {
 		Map<String, String[]> request_map = super.getParameterMap();
 		Iterator<Entry<String, String[]>> iterator = request_map.entrySet().iterator();
@@ -42,6 +45,10 @@ public class HttpServletAntiSamyRequestWrapper extends HttpServletRequestWrapper
 	}
 
 	@Override
+	/** Returns the parameter values.
+	 * @param name the name
+	 * @return the result
+	 */
 	public String[] getParameterValues(String name) {
 		String[] rawValues = super.getParameterValues(name);
 		if (rawValues == null){
@@ -55,6 +62,10 @@ public class HttpServletAntiSamyRequestWrapper extends HttpServletRequestWrapper
 	}
 
 	@Override
+	/** Returns the parameter.
+	 * @param name the name
+	 * @return the result
+	 */
 	public String getParameter(String name) {
 		String str = super.getParameter(name);
 		if (str == null){
@@ -64,6 +75,10 @@ public class HttpServletAntiSamyRequestWrapper extends HttpServletRequestWrapper
 	}
 
 	@Override
+	/** Returns the headers.
+	 * @param name the name
+	 * @return the result
+	 */
 	public Enumeration<String> getHeaders(String name) {
 		if(XssScanUtils.isXssHeader(antiSamyWrapper.getPolicyHeaders(), name)){
 			return new AntiSamyEnumeration( super.getHeaders(name), antiSamyWrapper);
@@ -72,6 +87,10 @@ public class HttpServletAntiSamyRequestWrapper extends HttpServletRequestWrapper
     }
 	
 	@Override
+	/** Returns the header.
+	 * @param name the name
+	 * @return the result
+	 */
 	public String getHeader(String name) {
 		String value = super.getHeader(name);
 		if (value == null){
@@ -84,6 +103,9 @@ public class HttpServletAntiSamyRequestWrapper extends HttpServletRequestWrapper
 	}
 	
 	@Override
+	/** Returns the cookies.
+	 * @return the result
+	 */
 	public Cookie[] getCookies() {
 		Cookie[] existingCookies = super.getCookies();
 		if (existingCookies != null) {
@@ -96,6 +118,9 @@ public class HttpServletAntiSamyRequestWrapper extends HttpServletRequestWrapper
 	}
 
 	@Override
+	/** Returns the query string.
+	 * @return the result
+	 */
 	public String getQueryString() {
 		return xssClean(super.getQueryString());
 	}

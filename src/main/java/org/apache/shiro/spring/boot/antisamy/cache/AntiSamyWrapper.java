@@ -2,6 +2,11 @@ package org.apache.shiro.spring.boot.antisamy.cache;
 
 import org.owasp.validator.html.AntiSamy;
 import org.owasp.validator.html.Policy;
+/** The Anti Samy Wrapper.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 
 public class AntiSamyWrapper {
 
@@ -21,34 +26,58 @@ public class AntiSamyWrapper {
 		this.policyHeaders = policyHeaders;
 	}
 
+	/** Returns the anti samy.
+	 * @return the result
+	 */
 	public AntiSamy getAntiSamy() {
 		return antiSamy;
 	}
 
+	/** Sets the anti samy.
+	 * @param antiSamy the antiSamy
+	 */
 	public void setAntiSamy(AntiSamy antiSamy) {
 		this.antiSamy = antiSamy;
 	}
 
+	/** Returns the policy.
+	 * @return the result
+	 */
 	public Policy getPolicy() {
 		return policy;
 	}
 
+	/** Sets the policy.
+	 * @param policy the policy
+	 */
 	public void setPolicy(Policy policy) {
 		this.policy = policy;
 	}
 
+	/** Returns the scan type.
+	 * @return the result
+	 */
 	public int getScanType() {
 		return scanType;
 	}
 
+	/** Sets the scan type.
+	 * @param scanType the scanType
+	 */
 	public void setScanType(int scanType) {
 		this.scanType = scanType;
 	}
 
+	/** Returns the policy headers.
+	 * @return the result
+	 */
 	public String[] getPolicyHeaders() {
 		return policyHeaders;
 	}
 
+	/** Sets the policy headers.
+	 * @param policyHeaders the policyHeaders
+	 */
 	public void setPolicyHeaders(String[] policyHeaders) {
 		this.policyHeaders = policyHeaders;
 	}

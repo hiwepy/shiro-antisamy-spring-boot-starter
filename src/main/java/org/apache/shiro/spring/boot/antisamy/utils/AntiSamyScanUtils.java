@@ -17,7 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * XSS扫描过滤工具
+ * XSS
  * @author [@Loong Wan](https://github.com/loong10k)
  */
 public class AntiSamyScanUtils {

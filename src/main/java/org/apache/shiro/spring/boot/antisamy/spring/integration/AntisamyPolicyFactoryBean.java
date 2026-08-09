@@ -18,33 +18,53 @@ package org.apache.shiro.spring.boot.antisamy.spring.integration;
 import org.owasp.validator.html.Policy;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.util.ResourceUtils;
+/** Factory for creating Antisamy Policy Bean instances.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 
 public class AntisamyPolicyFactoryBean implements FactoryBean<Policy>{
 
 	/**
-	 * policy配置文件路径
+	 * policyconfiguration
 	 */
 	private String policyConfigFilePath;
 	
 	@Override
+	/** Returns the object.
+	 * @return the result
+	 */
 	public Policy getObject() throws Exception {
 		return Policy.getInstance(ResourceUtils.getFile(policyConfigFilePath));
 	}
 
 	@Override
+	/** Returns the object type.
+	 * @return the result
+	 */
 	public Class<?> getObjectType() {
 		return Policy.class;
 	}
 
 	@Override
+	/** Returns whether the singleton is enabled.
+	 * @return the result
+	 */
 	public boolean isSingleton() {
 		return true;
 	}
 
+	/** Returns the policy config file path.
+	 * @return the result
+	 */
 	public String getPolicyConfigFilePath() {
 		return policyConfigFilePath;
 	}
 
+	/** Sets the policy config file path.
+	 * @param policyConfigFilePath the policyConfigFilePath
+	 */
 	public void setPolicyConfigFilePath(String policyConfigFilePath) {
 		this.policyConfigFilePath = policyConfigFilePath;
 	}

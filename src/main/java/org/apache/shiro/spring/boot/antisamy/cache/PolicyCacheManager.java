@@ -14,7 +14,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
 
 /**
- * Policy对象缓存管理
+ * Policyobjectmanagement
  * @author [@Loong Wan](https://github.com/loong10k)
  */
 public class PolicyCacheManager {
@@ -24,6 +24,10 @@ public class PolicyCacheManager {
 	protected static ConcurrentMap<String, Policy> COMPLIED_POLICY = new ConcurrentHashMap<String, Policy>();
 	protected ResourcePatternResolver resourceResolver;
 	
+	/** Returns the instance.
+	 * @param resourceResolver the resourceResolver
+	 * @return the result
+	 */
 	public static PolicyCacheManager getInstance(ResourcePatternResolver resourceResolver) {
 		if (singleton == null) {
 			synchronized (PolicyCacheManager.class) {
@@ -39,6 +43,10 @@ public class PolicyCacheManager {
 		this.resourceResolver = resourceResolver;
 	}
 	
+	/** Returns the xss policy.
+	 * @param relativePath the relativePath
+	 * @return the result
+	 */
 	public Policy getXssPolicy(String relativePath) throws PolicyException {
 		try {
 			
@@ -65,6 +73,10 @@ public class PolicyCacheManager {
 		}
 	}
 	
+	/** Returns the xss policy.
+	 * @param url the url
+	 * @return the result
+	 */
 	public Policy getXssPolicy(URL url) throws PolicyException{
 		try {
 			if(url == null){
@@ -88,6 +100,10 @@ public class PolicyCacheManager {
 		}
 	}
 	
+	/** Returns the xss policy.
+	 * @param policy the policy
+	 * @return the result
+	 */
 	public Policy getXssPolicy(File policy) throws PolicyException {
 		try {
 			if(policy == null || !policy.exists() || !policy.isFile()){

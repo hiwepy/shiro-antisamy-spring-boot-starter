@@ -15,6 +15,11 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
+/** The Ini.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 
 public class Ini implements Map<String, Ini.Section> {
 
@@ -297,11 +302,19 @@ public class Ini implements Map<String, Ini.Section> {
         addSection(sectionName, sectionContent);
     }
 
+    /** Returns whether the section header is enabled.
+     * @param line the line
+     * @return the result
+     */
     protected static boolean isSectionHeader(String line) {
         String s = StringUtils.trimWhitespace(line);
         return StringUtils.hasText(s) && s.startsWith(SECTION_PREFIX) && s.endsWith(SECTION_SUFFIX);
     }
 
+    /** Returns the section name.
+     * @param line the line
+     * @return the result
+     */
     protected static String getSectionName(String line) {
         String s = StringUtils.trimWhitespace(line);
         if (isSectionHeader(s)) {
@@ -310,6 +323,10 @@ public class Ini implements Map<String, Ini.Section> {
         return null;
     }
 
+    /** Indicates whether some other object is equal to this one.
+     * @param obj the obj
+     * @return the result
+     */
     public boolean equals(Object obj) {
         if (obj instanceof Ini) {
             Ini ini = (Ini) obj;
@@ -319,10 +336,16 @@ public class Ini implements Map<String, Ini.Section> {
     }
 
     @Override
+    /** Returns a hash code value for this object.
+     * @return the result
+     */
     public int hashCode() {
         return this.sections.hashCode();
     }
 
+    /** Returns a string representation of this object.
+     * @return the result
+     */
     public String toString() {
     	if (this.sections == null || this.sections.isEmpty()) {
             return "<empty INI>";
@@ -425,6 +448,10 @@ public class Ini implements Map<String, Ini.Section> {
 
         //Protected to access in a test case - NOT considered part of Shiro's public API
 
+        /** Returns whether the continued is enabled.
+         * @param line the line
+         * @return the result
+         */
         protected static boolean isContinued(String line) {
             if (!StringUtils.hasText(line)) {
                 return false;
@@ -518,6 +545,9 @@ public class Ini implements Map<String, Ini.Section> {
             return props;
         }
 
+        /** Returns the name.
+         * @return the result
+         */
         public String getName() {
             return this.name;
         }
@@ -542,6 +572,9 @@ public class Ini implements Map<String, Ini.Section> {
             return this.props.get(key);
         }
 
+        /** Returns whether the empty is enabled.
+         * @return the result
+         */
         public boolean isEmpty() {
             return this.props.isEmpty();
         }
@@ -570,6 +603,9 @@ public class Ini implements Map<String, Ini.Section> {
             return this.props.values();
         }
 
+        /** Returns a string representation of this object.
+         * @return the result
+         */
         public String toString() {
             String name = getName();
             if (DEFAULT_SECTION_NAME.equals(name)) {
@@ -579,6 +615,10 @@ public class Ini implements Map<String, Ini.Section> {
         }
 
         @Override
+        /** Indicates whether some other object is equal to this one.
+         * @param obj the obj
+         * @return the result
+         */
         public boolean equals(Object obj) {
             if (obj instanceof Section) {
                 Section other = (Section) obj;
@@ -588,6 +628,9 @@ public class Ini implements Map<String, Ini.Section> {
         }
 
         @Override
+        /** Returns a hash code value for this object.
+         * @return the result
+         */
         public int hashCode() {
             return this.name.hashCode() * 31 + this.props.hashCode();
         }

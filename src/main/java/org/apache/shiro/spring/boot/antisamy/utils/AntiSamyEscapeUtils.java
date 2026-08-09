@@ -3,6 +3,11 @@ package org.apache.shiro.spring.boot.antisamy.utils;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
+/** The Anti Samy Escape Utils.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 
 public class AntiSamyEscapeUtils {
 

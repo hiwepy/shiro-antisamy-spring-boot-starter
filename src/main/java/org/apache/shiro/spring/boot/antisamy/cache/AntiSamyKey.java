@@ -1,4 +1,9 @@
 package org.apache.shiro.spring.boot.antisamy.cache;
+/** The Anti Samy Key.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 
 public abstract class AntiSamyKey {
 

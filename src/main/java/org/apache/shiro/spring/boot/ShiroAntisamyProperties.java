@@ -17,6 +17,11 @@ package org.apache.shiro.spring.boot;
 
 import org.apache.shiro.spring.boot.antisamy.AntisamyProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+/** Configuration properties for Shiro Antisamy.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 
 @ConfigurationProperties(ShiroAntisamyProperties.PREFIX)
 public class ShiroAntisamyProperties extends AntisamyProperties {
@@ -26,10 +31,16 @@ public class ShiroAntisamyProperties extends AntisamyProperties {
 	/** 是否启用 **/
 	private boolean enabled = false;
 
+	/** Returns whether the enabled is enabled.
+	 * @return the result
+	 */
 	public boolean isEnabled() {
 		return enabled;
 	}
 
+	/** Sets the enabled.
+	 * @param enabled the enabled
+	 */
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}

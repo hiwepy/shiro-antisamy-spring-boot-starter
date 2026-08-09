@@ -24,6 +24,11 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+/** The U R L Utils.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 
 public class URLUtils {
 
@@ -34,7 +39,7 @@ public class URLUtils {
     protected static Pattern pattern = Pattern.compile(regEx);
     
 	/**
-	 * @描述:判断字串是否经过URLEncoder编码(正则判断字串是否匹配"%xy"，其中xy是两位16进制的数值)
+	 * @:URLEncoder("%xy"，xy16 )
 	 * @param String
 	 * @return
 	 */

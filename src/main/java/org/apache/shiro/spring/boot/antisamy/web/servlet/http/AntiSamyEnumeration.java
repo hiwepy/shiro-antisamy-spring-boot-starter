@@ -4,6 +4,11 @@ import java.util.Enumeration;
 
 import org.apache.shiro.spring.boot.antisamy.cache.AntiSamyWrapper;
 import org.apache.shiro.spring.boot.antisamy.utils.AntiSamyScanUtils;
+/** The Anti Samy Enumeration.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 
 public class AntiSamyEnumeration implements Enumeration<String> {
 	

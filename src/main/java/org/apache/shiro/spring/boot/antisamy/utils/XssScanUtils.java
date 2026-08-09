@@ -16,9 +16,19 @@
 package org.apache.shiro.spring.boot.antisamy.utils;
 
 import org.apache.commons.lang3.ArrayUtils;
+/** The Xss Scan Utils.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 
 public class XssScanUtils {
 	
+	/** Returns whether the xss header is enabled.
+	 * @param policyHeaders the policyHeaders
+	 * @param name the name
+	 * @return the result
+	 */
 	public static boolean isXssHeader(String[] policyHeaders, String name) {
 		if(policyHeaders != null && policyHeaders.length > 0){
 			return ArrayUtils.contains(policyHeaders, name);
