@@ -35,8 +35,8 @@ import java.util.TreeMap;
  * @see <a href="http://www.w3.org/TR/html401/charset.html#h-5.3">HTML 4.01 Character References</a>
  * @see <a href="http://www.w3.org/TR/html401/charset.html#code-position">HTML 4.01 Code positions</a>
  * 
- * @author <a href="mailto:alex@purpletech.com">Alexander Day Chaffee</a>
- * @author <a href="mailto:ggregory@seagullsw.com">Gary Gregory</a>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 2.0
  * @version $Id: Entities.java 1057037 2011-01-09 21:35:32Z niallp $
  */
@@ -405,7 +405,7 @@ class Entities {
     }
     /** The Entity Map.
      *
-     * @author [@Loong Wan](https://github.com/loong10k)
+     * @author <a href="https://github.com/loong10k">Loong Wan</a>
      * @since 1.0.0
      */
 
@@ -446,7 +446,7 @@ class Entities {
     }
     /** The Primitive Entity Map.
      *
-     * @author [@Loong Wan](https://github.com/loong10k)
+     * @author <a href="https://github.com/loong10k">Loong Wan</a>
      * @since 1.0.0
      */
 
@@ -527,7 +527,7 @@ class Entities {
     }
     /** The Hash Entity Map.
      *
-     * @author [@Loong Wan](https://github.com/loong10k)
+     * @author <a href="https://github.com/loong10k">Loong Wan</a>
      * @since 1.0.0
      */
 
@@ -541,7 +541,7 @@ class Entities {
     }
     /** The Tree Entity Map.
      *
-     * @author [@Loong Wan](https://github.com/loong10k)
+     * @author <a href="https://github.com/loong10k">Loong Wan</a>
      * @since 1.0.0
      */
 
@@ -555,7 +555,7 @@ class Entities {
     }
     /** The Lookup Entity Map.
      *
-     * @author [@Loong Wan](https://github.com/loong10k)
+     * @author <a href="https://github.com/loong10k">Loong Wan</a>
      * @since 1.0.0
      */
 
@@ -603,7 +603,7 @@ class Entities {
     }
     /** The Array Entity Map.
      *
-     * @author [@Loong Wan](https://github.com/loong10k)
+     * @author <a href="https://github.com/loong10k">Loong Wan</a>
      * @since 1.0.0
      */
 
@@ -693,7 +693,7 @@ class Entities {
     }
     /** The Binary Entity Map.
      *
-     * @author [@Loong Wan](https://github.com/loong10k)
+     * @author <a href="https://github.com/loong10k">Loong Wan</a>
      * @since 1.0.0
      */
 

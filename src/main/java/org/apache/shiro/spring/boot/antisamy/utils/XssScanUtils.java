@@ -18,7 +18,7 @@ package org.apache.shiro.spring.boot.antisamy.utils;
 import org.apache.commons.lang3.ArrayUtils;
 /** The Xss Scan Utils.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 1.0.0
  */
 

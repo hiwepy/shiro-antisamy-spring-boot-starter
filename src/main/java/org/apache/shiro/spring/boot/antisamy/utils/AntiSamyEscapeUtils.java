@@ -5,7 +5,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 /** The Anti Samy Escape Utils.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 1.0.0
  */
 

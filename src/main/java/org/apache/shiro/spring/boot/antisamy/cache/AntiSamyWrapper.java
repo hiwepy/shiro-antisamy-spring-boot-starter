@@ -4,7 +4,7 @@ import org.owasp.validator.html.AntiSamy;
 import org.owasp.validator.html.Policy;
 /** The Anti Samy Wrapper.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 1.0.0
  */
 
