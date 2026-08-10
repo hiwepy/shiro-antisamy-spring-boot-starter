@@ -21,7 +21,7 @@ import org.springframework.web.util.UrlPathHelper;
 
 /**
  * Antisamy XSS(Cross Site Scripting)，即跨站脚本攻击请求过滤
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  */
 public class HttpServletRequestAntisamyFilter extends AccessControlFilter {
 	
