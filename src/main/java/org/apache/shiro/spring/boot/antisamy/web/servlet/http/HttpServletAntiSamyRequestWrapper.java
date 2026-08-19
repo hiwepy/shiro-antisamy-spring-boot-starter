@@ -16,11 +16,18 @@ import org.apache.shiro.spring.boot.antisamy.utils.XssScanUtils;
 /**
  * RichText XSS(Cross Site Scripting)，request
  * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
  */
 public class HttpServletAntiSamyRequestWrapper extends HttpServletRequestWrapper {
 
 	private AntiSamyWrapper antiSamyWrapper = null;
 	
+	/**
+	 * Constructs a new http servlet anti samy request wrapper instance.
+	 *
+	 * @param antiSamyWrapper the anti samy wrapper
+	 * @param request the request
+	 */
 	public HttpServletAntiSamyRequestWrapper(AntiSamyWrapper antiSamyWrapper,HttpServletRequest request) {
 		super(request);
 		this.antiSamyWrapper = antiSamyWrapper;
@@ -125,10 +132,21 @@ public class HttpServletAntiSamyRequestWrapper extends HttpServletRequestWrapper
 		return xssClean(super.getQueryString());
 	}
 
+	/**
+	 * xss Clean.
+	 *
+	 * @param taintedHTML the tainted h t m l
+	 * @return the result
+	 */
 	public String xssClean(String taintedHTML) {
 		return AntiSamyScanUtils.xssClean(_getHttpServletRequest(), antiSamyWrapper, taintedHTML);
 	}
 	
+	/**
+	 * _get HTTP Servlet Request.
+	 *
+	 * @return the result
+	 */
 	protected HttpServletRequest _getHttpServletRequest() {
 		 return (HttpServletRequest) super.getRequest();
     }

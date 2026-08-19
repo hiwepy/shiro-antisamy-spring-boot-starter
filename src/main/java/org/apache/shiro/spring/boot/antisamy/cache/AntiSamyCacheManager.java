@@ -12,11 +12,18 @@
 /**
  * AntiSamy objectmanagement
  * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
  */
 public class AntiSamyCacheManager {
 	
 	private volatile static AntiSamyCacheManager singleton;
 	protected static ConcurrentMap<Policy, AntiSamy> COMPLIED_ANTISAMY = new ConcurrentHashMap<Policy, AntiSamy>();
+	/**
+	 * get Instance.
+	 *
+	 * @param policyCacheManager the policy cache manager
+	 * @return the result
+	 */
 	protected PolicyCacheManager policyCacheManager;
 	
 	/** Returns the instance.
@@ -81,6 +88,10 @@ public class AntiSamyCacheManager {
 		return getXssAntiSamyWrapper(xssPolicy, scanType, policyHeaders);
 	}
 	
+	/**
+	 * destroy.
+	 *
+	 */
 	public void destroy() {
 		synchronized (COMPLIED_ANTISAMY) {
 			policyCacheManager.destroy();

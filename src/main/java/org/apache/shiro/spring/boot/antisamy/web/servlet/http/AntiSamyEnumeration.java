@@ -17,16 +17,32 @@ public class AntiSamyEnumeration implements Enumeration<String> {
 	/**原始Header*/
 	private Enumeration<String> headers;
 	
+	/**
+	 * Constructs a new anti samy enumeration instance.
+	 *
+	 * @param headers the headers
+	 * @param antiSamyProxy the anti samy proxy
+	 */
 	public AntiSamyEnumeration(Enumeration<String> headers, AntiSamyWrapper antiSamyProxy){
 		this.antiSamyProxy = antiSamyProxy;
 		this.headers = headers;
 	}
 	
+	/**
+	 * Determines whether has more elements.
+	 *
+	 * @return the result
+	 */
 	@Override
 	public boolean hasMoreElements() {
 		return headers.hasMoreElements();
 	}
 
+	/**
+	 * next Element.
+	 *
+	 * @return the result
+	 */
 	@Override
 	public String nextElement() {
 		return AntiSamyScanUtils.xssClean( antiSamyProxy, headers.nextElement());

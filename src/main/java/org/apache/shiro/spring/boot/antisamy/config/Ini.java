@@ -26,13 +26,37 @@ public class Ini implements Map<String, Ini.Section> {
     private static transient final Logger log = LoggerFactory.getLogger(Ini.class);
 
     public static final String DEFAULT_SECTION_NAME = ""; //empty string means the first unnamed section
+    /**
+     * Constructs a new ini instance.
+     *
+     */
     public static final String DEFAULT_CHARSET_NAME = "UTF-8";
 
+    /**
+     * Constructs a new ini instance.
+     *
+     */
     public static final String COMMENT_POUND = "#";
+    /**
+     * Constructs a new ini instance.
+     *
+     */
     public static final String COMMENT_SEMICOLON = ";";
+    /**
+     * Constructs a new ini instance.
+     *
+     */
     public static final String SECTION_PREFIX = "[";
+    /**
+     * Constructs a new ini instance.
+     *
+     */
     public static final String SECTION_SUFFIX = "]";
 
+    /**
+     * Constructs a new ini instance.
+     *
+     */
     protected static final char ESCAPE_TOKEN = '\\';
 
     private final Map<String, Section> sections;
@@ -363,46 +387,106 @@ public class Ini implements Map<String, Ini.Section> {
         }
     }
 
+    /**
+     * size.
+     *
+     * @return the result
+     */
     public int size() {
         return this.sections.size();
     }
 
+    /**
+     * Determines whether contains key.
+     *
+     * @param key the key
+     * @return the result
+     */
     public boolean containsKey(Object key) {
         return this.sections.containsKey(key);
     }
 
+    /**
+     * Determines whether contains value.
+     *
+     * @param value the value
+     * @return the result
+     */
     public boolean containsValue(Object value) {
         return this.sections.containsValue(value);
     }
 
+    /**
+     * get.
+     *
+     * @param key the key
+     * @return the result
+     */
     public Section get(Object key) {
         return this.sections.get(key);
     }
 
+    /**
+     * put.
+     *
+     * @param key the key
+     * @param value the value
+     * @return the result
+     */
     public Section put(String key, Section value) {
         return this.sections.put(key, value);
     }
 
+    /**
+     * remove.
+     *
+     * @param key the key
+     * @return the result
+     */
     public Section remove(Object key) {
         return this.sections.remove(key);
     }
 
+    /**
+     * put All.
+     *
+     * @param m the m
+     */
     public void putAll(Map<? extends String, ? extends Section> m) {
         this.sections.putAll(m);
     }
 
+    /**
+     * clear.
+     *
+     */
     public void clear() {
         this.sections.clear();
     }
 
+    /**
+     * key Set.
+     *
+     * @return the result
+     */
     public Set<String> keySet() {
         return Collections.unmodifiableSet(this.sections.keySet());
     }
 
+    /**
+     * values.
+     *
+     * @return the result
+     */
     public Collection<Section> values() {
         return Collections.unmodifiableCollection(this.sections.values());
     }
 
+    /**
+     * entry Set.
+     *
+     * @return the result
+     */
     public Set<Entry<String, Section>> entrySet() {
         return Collections.unmodifiableSet(this.sections.entrySet());
     }
@@ -479,6 +563,12 @@ public class Ini implements Map<String, Ini.Section> {
         }
 
         //Protected to access in a test case - NOT considered part of Shiro's public API
+        /**
+         * split Key Value.
+         *
+         * @param keyValueLine the key value line
+         * @return the result
+         */
         protected static String[] splitKeyValue(String keyValueLine) {
             String line = StringUtils.trimWhitespace(keyValueLine);
             if (!StringUtils.hasText(line)) {
@@ -552,22 +642,49 @@ public class Ini implements Map<String, Ini.Section> {
             return this.name;
         }
 
+        /**
+         * clear.
+         *
+         */
         public void clear() {
             this.props.clear();
         }
 
+        /**
+         * Determines whether contains key.
+         *
+         * @param key the key
+         * @return the result
+         */
         public boolean containsKey(Object key) {
             return this.props.containsKey(key);
         }
 
+        /**
+         * Determines whether contains value.
+         *
+         * @param value the value
+         * @return the result
+         */
         public boolean containsValue(Object value) {
             return this.props.containsValue(value);
         }
 
+        /**
+         * entry Set.
+         *
+         * @return the result
+         */
         public Set<Entry<String, String>> entrySet() {
             return this.props.entrySet();
         }
 
+        /**
+         * get.
+         *
+         * @param key the key
+         * @return the result
+         */
         public String get(Object key) {
             return this.props.get(key);
         }
@@ -579,26 +696,59 @@ public class Ini implements Map<String, Ini.Section> {
             return this.props.isEmpty();
         }
 
+        /**
+         * key Set.
+         *
+         * @return the result
+         */
         public Set<String> keySet() {
             return this.props.keySet();
         }
 
+        /**
+         * put.
+         *
+         * @param key the key
+         * @param value the value
+         * @return the result
+         */
         public String put(String key, String value) {
             return this.props.put(key, value);
         }
 
+        /**
+         * put All.
+         *
+         * @param m the m
+         */
         public void putAll(Map<? extends String, ? extends String> m) {
             this.props.putAll(m);
         }
 
+        /**
+         * remove.
+         *
+         * @param key the key
+         * @return the result
+         */
         public String remove(Object key) {
             return this.props.remove(key);
         }
 
+        /**
+         * size.
+         *
+         * @return the result
+         */
         public int size() {
             return this.props.size();
         }
 
+        /**
+         * values.
+         *
+         * @return the result
+         */
         public Collection<String> values() {
             return this.props.values();
         }

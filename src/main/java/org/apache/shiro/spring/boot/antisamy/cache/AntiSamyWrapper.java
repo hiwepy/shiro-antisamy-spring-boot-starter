@@ -19,6 +19,14 @@ public class AntiSamyWrapper {
 	/**需要进行Xss检查的Header*/
 	protected String[] policyHeaders;
 	
+	/**
+	 * Constructs a new anti samy wrapper instance.
+	 *
+	 * @param antiSamy the anti samy
+	 * @param policy the policy
+	 * @param scanType the scan type
+	 * @param policyHeaders the policy headers
+	 */
 	public AntiSamyWrapper(AntiSamy antiSamy,Policy policy, int scanType, String[] policyHeaders) {
 		this.antiSamy = antiSamy;
 		this.policy = policy;

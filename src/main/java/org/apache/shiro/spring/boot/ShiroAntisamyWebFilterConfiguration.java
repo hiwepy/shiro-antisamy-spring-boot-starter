@@ -34,18 +34,37 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 @EnableConfigurationProperties(ShiroAntisamyProperties.class)
 public class ShiroAntisamyWebFilterConfiguration extends AbstractShiroWebFilterConfiguration {
 
+	/**
+	 * policy Cache Manager.
+	 *
+	 * @param resourceResolver the resource resolver
+	 * @return the result
+	 */
 	@Bean
 	@ConditionalOnMissingBean
 	public PolicyCacheManager policyCacheManager(ResourcePatternResolver resourceResolver) {
 		return PolicyCacheManager.getInstance(resourceResolver);
 	}
 	
+	/**
+	 * anti Samy Cache Manager.
+	 *
+	 * @param policyCacheManager the policy cache manager
+	 * @return the result
+	 */
 	@Bean
 	@ConditionalOnMissingBean
 	public AntiSamyCacheManager antiSamyCacheManager(PolicyCacheManager policyCacheManager) {
 		return AntiSamyCacheManager.getInstance(policyCacheManager);
 	}
 	
+	/**
+	 * antisamy Filter.
+	 *
+	 * @param antiSamyCacheManager the anti samy cache manager
+	 * @param properties the properties
+	 * @return the result
+	 */
 	@Bean("antisamy")
 	@ConditionalOnMissingBean(name = "antisamy")
 	public HttpServletRequestAntisamyFilter antisamyFilter(AntiSamyCacheManager antiSamyCacheManager ,

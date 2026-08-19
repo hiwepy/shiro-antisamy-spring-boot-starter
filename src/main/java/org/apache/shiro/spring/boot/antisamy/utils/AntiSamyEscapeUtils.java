@@ -11,10 +11,23 @@ import java.io.Writer;
 
 public class AntiSamyEscapeUtils {
 
+	/**
+	 * escape HTML.
+	 *
+	 * @param str the str
+	 * @return the result
+	 */
 	public static String escapeHtml(String str) {
 		return escapeHtmlString(str, true, true);
 	}
 
+	/**
+	 * escape HTML.
+	 *
+	 * @param out the out
+	 * @param str the str
+	 * @throws IOException if an error occurs
+	 */
 	public static void escapeHtml(Writer out, String str) throws IOException {
 		escapeHtmlString(out, str, true, true);
 	}
@@ -111,6 +124,12 @@ public class AntiSamyEscapeUtils {
         }
     }
     
+    /**
+     * unescape HTML.
+     *
+     * @param str the str
+     * @return the result
+     */
     public static String unescapeHtml(String str) {
         if (str == null) {
             return null;
@@ -125,6 +144,13 @@ public class AntiSamyEscapeUtils {
         }
     }
 
+    /**
+     * unescape HTML.
+     *
+     * @param out the out
+     * @param str the str
+     * @throws IOException if an error occurs
+     */
     public static void unescapeHtml(Writer out, String str) throws IOException {
         if (out == null) {
             throw new IllegalArgumentException("The Writer must not be null");

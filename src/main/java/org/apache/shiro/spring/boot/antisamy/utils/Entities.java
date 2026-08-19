@@ -459,6 +459,12 @@ class Entities {
          * {@inheritDoc}
          */
         // TODO not thread-safe as there is a window between changing the two maps
+        /**
+         * add.
+         *
+         * @param name the name
+         * @param value the value
+         */
         public void add(String name, int value) {
             mapNameToValue.put(name, new Integer(value));
             mapValueToName.put(value, name);
@@ -609,12 +615,28 @@ class Entities {
 
     static class ArrayEntityMap implements EntityMap {
         // TODO this class is not thread-safe
+        /**
+         * Constructs a new array entity map instance.
+         *
+         */
         protected final int growBy;
 
+        /**
+         * Constructs a new array entity map instance.
+         *
+         */
         protected int size = 0;
 
+        /**
+         * Constructs a new array entity map instance.
+         *
+         */
         protected String[] names;
 
+        /**
+         * Constructs a new array entity map instance.
+         *
+         */
         protected int[] values;
 
         /**

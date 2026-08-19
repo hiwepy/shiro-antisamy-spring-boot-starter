@@ -21,6 +21,7 @@ import org.springframework.web.util.UrlPathHelper;
 /**
  * Antisamy XSS(Cross Site Scripting)，request
  * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
  */
 public class HttpServletRequestAntisamyFilter extends AccessControlFilter {
 	
@@ -34,6 +35,12 @@ public class HttpServletRequestAntisamyFilter extends AccessControlFilter {
 	/** Antisamy 配置 */
 	protected final AntisamyProperties properties;
 	
+	/**
+	 * Constructs a new http servlet request antisamy filter instance.
+	 *
+	 * @param antiSamyCacheManager the anti samy cache manager
+	 * @param properties the properties
+	 */
 	public HttpServletRequestAntisamyFilter(AntiSamyCacheManager antiSamyCacheManager, AntisamyProperties properties) {
 		this.antiSamyCacheManager = antiSamyCacheManager;
 		this.properties = properties;
@@ -51,11 +58,27 @@ public class HttpServletRequestAntisamyFilter extends AccessControlFilter {
 		return true;
 	}
 	
+	/**
+	 * Determines whether on access denied.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @return the result
+	 * @throws Exception if an error occurs
+	 */
 	@Override
 	protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
 		return true;
 	}
 	
+	/**
+	 * execute Chain.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @param filterChain the filter chain
+	 * @throws Exception if an error occurs
+	 */
 	@Override
 	protected void executeChain(ServletRequest request, ServletResponse response, FilterChain filterChain) throws Exception {
 
@@ -79,6 +102,12 @@ public class HttpServletRequestAntisamyFilter extends AccessControlFilter {
 		 
 	}
 	
+	/**
+	 * Determines whether matches.
+	 *
+	 * @param request the request
+	 * @return the result
+	 */
 	protected boolean matches(jakarta.servlet.http.HttpServletRequest request) {
 		String lookupPath = this.urlPathHelper.getLookupPathForRequest(request);
 		return this.matches(lookupPath, this.pathMatcher);
@@ -127,6 +156,10 @@ public class HttpServletRequestAntisamyFilter extends AccessControlFilter {
 		return antiSamyCacheManager.getDefaultAntiSamyWrapper(properties.getScanType(), properties.getPolicyHeaders());
 	}
 	
+	/**
+	 * destroy.
+	 *
+	 */
 	@Override
 	public void destroy() {
 		super.destroy();

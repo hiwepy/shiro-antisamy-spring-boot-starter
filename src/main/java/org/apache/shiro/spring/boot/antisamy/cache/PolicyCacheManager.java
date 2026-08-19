@@ -16,12 +16,19 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 /**
  * Policyobjectmanagement
  * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
  */
 public class PolicyCacheManager {
 	
 	private volatile static PolicyCacheManager singleton;
 	protected static Logger LOG = LoggerFactory.getLogger(PolicyCacheManager.class);
 	protected static ConcurrentMap<String, Policy> COMPLIED_POLICY = new ConcurrentHashMap<String, Policy>();
+	/**
+	 * get Instance.
+	 *
+	 * @param resourceResolver the resource resolver
+	 * @return the result
+	 */
 	protected ResourcePatternResolver resourceResolver;
 	
 	/** Returns the instance.
@@ -127,6 +134,10 @@ public class PolicyCacheManager {
 		}
 	}
 	
+	/**
+	 * destroy.
+	 *
+	 */
 	public void destroy() {
 		synchronized (COMPLIED_POLICY) {
 			COMPLIED_POLICY.clear();

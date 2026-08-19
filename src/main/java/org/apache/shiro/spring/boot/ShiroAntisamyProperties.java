@@ -26,6 +26,11 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(ShiroAntisamyProperties.PREFIX)
 public class ShiroAntisamyProperties extends AntisamyProperties {
 	
+	/**
+	 * Returns the enabled.
+	 *
+	 * @return the enabled
+	 */
 	public static final String PREFIX = "shiro.antisamy";
 	
 	/** 是否启用 **/
